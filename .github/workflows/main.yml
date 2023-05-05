@@ -1,11 +1,11 @@
-name: '52Pojie Auto Sign'
+name: "吾爱破解签到"
 
 on:
-  push:
-    branches:
-      - master
+  workflow_dispatch:
   schedule:
-    - cron: '0 18,10 * * *'
+    - cron: "0 10,18  * * *"
+  watch:
+    types: [started]
 
 jobs:
   sign:
@@ -16,7 +16,7 @@ jobs:
       - name: '初始化Python'
         uses: actions/setup-python@v1
         with:
-          python-version: '3.6'
+          python-version: '3.11'
       - name: '安装依赖包'
         run: |
           python -m pip install --upgrade requests
